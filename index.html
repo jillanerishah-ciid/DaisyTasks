@@ -600,10 +600,207 @@
     .gdn-confetti-bit {
       animation: gdn-confetti-fly 0.9s cubic-bezier(.22,1,.36,1) forwards;
     }
+    body {
+      background: linear-gradient(135deg, #f5f2ec 0%, #faf8f3 50%, #f0ede6 100%);
+      background-attachment: fixed;
+      position: relative;
+      min-height: 100vh;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image:
+        radial-gradient(circle at 10% 20%, rgba(200, 230, 150, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(150, 200, 230, 0.06) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    #gdn-root {
+      position: relative;
+      z-index: 2147483647;
+    }
+    .gdn-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 48px;
+      background: rgba(252,249,242,0.92);
+      border-bottom: 1px solid rgba(170,145,100,0.15);
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      z-index: 2147483646;
+      backdrop-filter: blur(8px);
+      pointer-events: all;
+    }
+    .gdn-logo {
+      font-size: 18px;
+      font-weight: bold;
+      color: #6db36d;
+      font-family: Georgia, serif;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: opacity 0.2s;
+    }
+    .gdn-logo:hover {
+      opacity: 0.8;
+    }
+    .gdn-logo-flower {
+      font-size: 20px;
+    }
+    .gdn-header-spacer {
+      flex: 1;
+    }
+    .gdn-header-btns {
+      display: flex;
+      gap: 8px;
+    }
+    .gdn-header-btn {
+      background: rgba(255,255,255,0.5);
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 14px;
+      padding: 4px 12px;
+      font-size: 11px;
+      cursor: pointer;
+      color: rgba(50,50,50,0.65);
+      font-family: Georgia, serif;
+      backdrop-filter: blur(4px);
+      transition: background 0.15s;
+    }
+    .gdn-header-btn:hover {
+      background: rgba(255,255,255,0.8);
+    }
+    .gdn-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.4);
+      z-index: 2147483648;
+      align-items: center;
+      justify-content: center;
+    }
+    .gdn-modal.gdn-modal-open {
+      display: flex;
+    }
+    .gdn-modal-content {
+      background: rgba(252,250,244,0.98);
+      border: 1.5px solid rgba(170,145,100,0.25);
+      border-radius: 16px;
+      padding: 28px;
+      max-width: 500px;
+      width: 90%;
+      max-height: 80vh;
+      overflow-y: auto;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+      backdrop-filter: blur(12px);
+      animation: slideUp 0.3s ease-out;
+    }
+    @keyframes slideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .gdn-modal-close {
+      float: right;
+      font-size: 24px;
+      cursor: pointer;
+      color: rgba(100,80,40,0.4);
+      background: none;
+      border: none;
+      padding: 0;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.2s;
+    }
+    .gdn-modal-close:hover {
+      color: rgba(100,80,40,0.8);
+    }
+    .gdn-modal h2 {
+      font-size: 22px;
+      color: #2a1808;
+      margin-bottom: 12px;
+      margin-top: 0;
+      font-family: Georgia, serif;
+      font-weight: bold;
+    }
+    .gdn-modal p {
+      font-size: 13px;
+      color: #3a2810;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+    .gdn-modal a {
+      color: #6db36d;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .gdn-modal a:hover {
+      color: #5a9e5a;
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
+  <div class="gdn-header">
+    <div class="gdn-logo" id="gdn-logo-btn">
+      <span class="gdn-logo-flower">🌼</span>
+      <span>Daisy Tasks</span>
+    </div>
+    <div class="gdn-header-spacer"></div>
+    <div class="gdn-header-btns">
+      <button class="gdn-header-btn" id="gdn-about-btn">about</button>
+      <button class="gdn-header-btn" id="gdn-contact-btn">bug report</button>
+    </div>
+  </div>
   <div id="gdn-root"></div>
+
+  <div class="gdn-modal" id="gdn-about-modal">
+    <div class="gdn-modal-content">
+      <button class="gdn-modal-close" id="gdn-about-close">&times;</button>
+      <h2>🌼 Daisy Tasks</h2>
+      <p>
+        A living garden where your tasks grow. Each task you add becomes a little plant that grows through multiple stages as you water it (complete it). When you're done, pick it and add it to your vase.
+      </p>
+      <p>
+        Daisy Tasks was built because I kept trying different productivity tools and trackers, but what I really needed was a gentle reminder that met me where I was. Not only is Plant growth a lovely metaphor, but I wanted to add a little fun to stressful moments. 
+        I'm currently drawing flowers to replace the current ones, and please submit bug reports or feature requests so I can make this a better experience for you! 
+      </p>
+      <p>
+        Made by <a href="https://www.jillanerishah.com" target="_blank">Jill Aneri Shah</a>, a UX Researcher & Interaction Designer trying to build usefully joyful products & Claude Code.
+      </p>
+      <p style="font-size: 12px; color: rgba(100,80,40,0.5); margin-top: 20px;">
+        Built with care for everyone who wants to try a gentler way to grow.
+      </p>
+    </div>
+  </div>
+
+  <div class="gdn-modal" id="gdn-contact-modal">
+    <div class="gdn-modal-content">
+      <button class="gdn-modal-close" id="gdn-contact-close">&times;</button>
+      <h2>🐛 Bug Report</h2>
+      <p>Found a bug or have a feature request? I'd love to hear from you!</p>
+      <p>
+        Open an issue on <a href="https://github.com/jillanerishah/daisy-tasks/issues" target="_blank">GitHub</a> or reach out via <a href="https://www.jillanerishah.com" target="_blank">my portfolio</a>.
+      </p>
+      <p style="font-size: 12px; color: rgba(100,80,40,0.5); margin-top: 20px;">
+        Your feedback helps Daisy Tasks grow! 🌱
+      </p>
+    </div>
+  </div>
+
   <script src="app.js"></script>
 </body>
 </html>
