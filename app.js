@@ -1421,28 +1421,40 @@
   const aboutClose = document.getElementById('gdn-about-close');
   const contactClose = document.getElementById('gdn-contact-close');
 
-  aboutBtn.addEventListener('click', () => {
-    aboutModal.classList.add('gdn-modal-open');
-  });
+  if (aboutBtn) {
+    aboutBtn.addEventListener('click', () => {
+      aboutModal.classList.add('gdn-modal-open');
+    });
+  }
 
-  contactBtn.addEventListener('click', () => {
-    contactModal.classList.add('gdn-modal-open');
-  });
+  if (contactBtn) {
+    contactBtn.addEventListener('click', () => {
+      contactModal.classList.add('gdn-modal-open');
+    });
+  }
 
-  aboutClose.addEventListener('click', () => {
-    aboutModal.classList.remove('gdn-modal-open');
-  });
+  if (aboutClose) {
+    aboutClose.addEventListener('click', (e) => {
+      e.stopPropagation();
+      aboutModal.classList.remove('gdn-modal-open');
+    });
+  }
 
-  contactClose.addEventListener('click', () => {
-    contactModal.classList.remove('gdn-modal-open');
-  });
+  if (contactClose) {
+    contactClose.addEventListener('click', (e) => {
+      e.stopPropagation();
+      contactModal.classList.remove('gdn-modal-open');
+    });
+  }
 
   // Close modals when clicking outside
-  aboutModal.addEventListener('click', (e) => {
-    if (e.target === aboutModal) {
-      aboutModal.classList.remove('gdn-modal-open');
-    }
-  });
+  if (aboutModal) {
+    aboutModal.addEventListener('click', (e) => {
+      if (e.target === aboutModal) {
+        aboutModal.classList.remove('gdn-modal-open');
+      }
+    });
+  }
 
   contactModal.addEventListener('click', (e) => {
     if (e.target === contactModal) {
