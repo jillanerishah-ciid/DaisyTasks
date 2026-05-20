@@ -7,8 +7,9 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body {
-      width: 100%; height: 100%;
-      background: #f5f2ec;
+      width: 100%;
+      min-height: 100vh;
+      background: #e8f0e0;
       font-family: Georgia, 'Times New Roman', serif;
     }
     #gdn-root {
@@ -49,7 +50,7 @@
       display: flex;
       align-items: flex-end;
       padding: 0 16px 0 20px;
-      min-height: 380px;
+      min-height: 500px;
       gap: 8px;
       overflow: visible;
     }
@@ -70,7 +71,7 @@
       position: relative;
     }
     .gdn-strip .gdn-vase {
-      transform: scale(1.55);
+      transform: scale(2.2);
       transform-origin: bottom center;
       margin-bottom: 4px;
     }
@@ -140,11 +141,11 @@
     .gdn-plants-row {
       display: flex;
       align-items: flex-end;
-      gap: 10px;
+      gap: 16px;
       flex: 1;
       overflow: visible;
-      min-height: 220px;
-      padding-top: 0;
+      min-height: 280px;
+      padding: 0 20px;
     }
     .gdn-empty {
       font-size: 11px;
@@ -241,18 +242,19 @@
     }
     .gdn-vase-flowers.gdn-vase-jump { animation: gdn-vase-jump 0.7s ease-out; }
     .gdn-add-btn {
-      background: rgba(255,255,255,0.65);
-      border: 1px solid rgba(0,0,0,0.1);
-      border-radius: 20px;
-      padding: 4px 14px;
-      font-size: 12px;
+      background: rgba(255,255,255,0.75);
+      border: 1.5px solid rgba(109,179,109,0.2);
+      border-radius: 24px;
+      padding: 8px 18px;
+      font-size: 14px;
       cursor: pointer;
-      color: rgba(50,50,50,0.72);
+      color: #3a5a2a;
       font-family: Georgia, serif;
       backdrop-filter: blur(6px);
       transition: background 0.15s;
+      font-weight: 500;
     }
-    .gdn-add-btn:hover { background: rgba(255,255,255,0.88); }
+    .gdn-add-btn:hover { background: rgba(255,255,255,0.95); }
     .gdn-layout-btn {
       background: rgba(255,255,255,0.5);
       border: 1px solid rgba(0,0,0,0.08);
@@ -600,44 +602,23 @@
     .gdn-confetti-bit {
       animation: gdn-confetti-fly 0.9s cubic-bezier(.22,1,.36,1) forwards;
     }
-    body {
-      background: linear-gradient(135deg, #f5f2ec 0%, #faf8f3 50%, #f0ede6 100%);
-      background-attachment: fixed;
-    }
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image:
-        radial-gradient(circle at 10% 20%, rgba(200, 230, 150, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(150, 200, 230, 0.06) 0%, transparent 50%);
-      pointer-events: none;
-      z-index: 1;
-    }
-    #gdn-root {
-      position: relative;
-      z-index: 2147483647;
-    }
     .gdn-header {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
-      height: 48px;
-      background: rgba(252,249,242,0.92);
-      border-bottom: 1px solid rgba(170,145,100,0.15);
+      height: 60px;
+      background: rgba(232,240,224,0.95);
+      border-bottom: 2px solid rgba(109,179,109,0.25);
       display: flex;
       align-items: center;
-      padding: 0 20px;
+      padding: 0 24px;
       z-index: 2147483646;
       backdrop-filter: blur(8px);
       pointer-events: all;
     }
     .gdn-logo {
-      font-size: 18px;
+      font-size: 22px;
       font-weight: bold;
       color: #6db36d;
       font-family: Georgia, serif;
@@ -645,14 +626,14 @@
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
       transition: opacity 0.2s;
     }
     .gdn-logo:hover {
       opacity: 0.8;
     }
     .gdn-logo-flower {
-      font-size: 20px;
+      font-size: 26px;
     }
     .gdn-header-spacer {
       flex: 1;
@@ -662,19 +643,20 @@
       gap: 8px;
     }
     .gdn-header-btn {
-      background: rgba(255,255,255,0.5);
-      border: 1px solid rgba(0,0,0,0.08);
-      border-radius: 14px;
-      padding: 4px 12px;
-      font-size: 11px;
+      background: rgba(255,255,255,0.65);
+      border: 1px solid rgba(109,179,109,0.2);
+      border-radius: 16px;
+      padding: 6px 14px;
+      font-size: 12px;
       cursor: pointer;
-      color: rgba(50,50,50,0.65);
+      color: #3a5a2a;
       font-family: Georgia, serif;
       backdrop-filter: blur(4px);
       transition: background 0.15s;
+      font-weight: 500;
     }
     .gdn-header-btn:hover {
-      background: rgba(255,255,255,0.8);
+      background: rgba(255,255,255,0.9);
     }
     .gdn-modal {
       display: none;
