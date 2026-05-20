@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Garden Tasks</title>
+  <title>Daisy Tasks</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body {
@@ -685,6 +685,7 @@
       box-shadow: 0 12px 40px rgba(0,0,0,0.2);
       backdrop-filter: blur(12px);
       animation: slideUp 0.3s ease-out;
+      pointer-events: all;
     }
     @keyframes slideUp {
       from { transform: translateY(20px); opacity: 0; }
@@ -704,6 +705,7 @@
       align-items: center;
       justify-content: center;
       transition: color 0.2s;
+      pointer-events: all;
     }
     .gdn-modal-close:hover {
       color: rgba(100,80,40,0.8);
