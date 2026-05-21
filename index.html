@@ -774,7 +774,7 @@
 
   <div class="gdn-modal" id="gdn-contact-modal">
     <div class="gdn-modal-content">
-      <button class="gdn-modal-close" id="gdn-contact-close" type="button" onclick="closeContactModal()">&times;</button>
+      <button class="gdn-modal-close" id="gdn-contact-close" onclick="document.getElementById('gdn-contact-modal').classList.remove('gdn-modal-open')">&times;</button>
       <h2>🐛 Bug Report</h2>
       <p>Found a bug or have a feature request? I'd love to hear from you!</p>
       <p>
@@ -786,11 +786,6 @@
     </div>
   </div>
 
-  <script>
-    function closeContactModal() {
-      document.getElementById('gdn-contact-modal').classList.remove('gdn-modal-open');
-    }
-  </script>
   <script src="app.js"></script>
 </body>
 </html>
