@@ -1,0 +1,25 @@
+{
+  "name": "daisy-tasks",
+  "version": "1.0.0",
+  "description": "A Browser Extension (eventually, it's currently a Vercel App) made by Claude Code that stores your To Do List in the shape of flowers.",
+  "type": "module",
+  "scripts": {
+    "build": "esbuild analytics.js --bundle --format=esm --outfile=analytics.bundle.js",
+    "dev": "vercel dev",
+    "deploy": "vercel"
+  },
+  "keywords": [
+    "tasks",
+    "todo",
+    "garden",
+    "browser-extension"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vercel/analytics": "^1.4.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.0"
+  }
+}
