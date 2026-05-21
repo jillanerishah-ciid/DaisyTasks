@@ -183,6 +183,26 @@
     .gdn-plant-wrap:hover .gdn-plant-inner {
       filter: brightness(1.08) drop-shadow(0 2px 6px rgba(80,160,80,0.28));
     }
+    .gdn-plant-wrap::after {
+      content: 'Double-click to pause • Pick to finish';
+      position: absolute;
+      bottom: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.8);
+      color: white;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s;
+      z-index: 100;
+    }
+    .gdn-plant-wrap:hover::after {
+      opacity: 1;
+    }
     @keyframes gdn-grow-in {
       0%   { transform: scale(0.82) translateY(4px); opacity: 0.4; }
       100% { transform: scale(1)    translateY(0);   opacity: 1;   }
@@ -751,6 +771,9 @@
       <button class="gdn-header-btn" onclick="window.open('https://www.jillanerishah.com', '_blank')" title="by Jill Aneri Shah">💃 by @jillanerishah</button>
     </div>
   </div>
+  <div style="padding: 12px 24px; background: rgba(232,240,224,0.4); border-bottom: 1px solid rgba(109,179,109,0.15); font-size: 12px; color: #3a5a2a;">
+    💡 Double-click to pause a flower • Click "pick" to finish and add to vase
+  </div>
   <div id="gdn-root"></div>
 
 
@@ -765,6 +788,9 @@
       <p>
         Daisy Tasks was built because I kept trying different productivity tools and trackers, but what I really needed was a gentle reminder that met me where I was. Not only is Plant growth a lovely metaphor, but I wanted to add a little fun to stressful moments.
         I'm currently drawing flowers to replace the current ones, and please submit bug reports or feature requests so I can make this a better experience for you!
+      </p>
+      <p style="font-size: 12px; margin-top: 20px; padding: 12px; background: rgba(232,240,224,0.5); border-radius: 8px; border-left: 3px solid #6db36d;">
+        <strong>How to use:</strong> Double-click to pause a flower, or click "pick" to cross it off your list and add it to your vase.
       </p>
       <p style="font-size: 12px; color: rgba(100,80,40,0.5); margin-top: 20px;">
         Built with care for everyone who wants to try a gentler way to grow.
