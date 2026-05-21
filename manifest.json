@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+  "name": "Garden Tasks",
+  "version": "1.0",
+  "description": "A living garden where your tasks grow. Water them, pick them, celebrate them.",
+  "permissions": ["storage"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "garden-tasks@local",
+      "strict_min_version": "57.0"
+    }
+  }
+}
